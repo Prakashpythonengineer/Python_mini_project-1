@@ -1,0 +1,56 @@
+print("             Welcome to Train Ticket Booking Portal")
+print("\n")
+train_name=["Chozan Express", "Pandian Express", "KRMI TEJAS EXP", "SHATABDI EXP", "Chennai Express", "Coimbatore Express"]
+destination=["Chennai Egmore","Chennai Egmore", "C Shivaji Mah T Railway Station","Kalka", "Lokmanyatilak T", " Lokmanyatilak T "]
+arrival=["Tiruchirapalli Jn", "Madurai Jn", " Karmali Railway Station (Goa)", "Delhi","Chennai Central","Coimbatore" ]
+number_of_seats=[180, 180, 400, 320, 300, 350]                
+ticket_price=[450,500,800,530,650,700]
+print("\nWelcome to Booking Portal\n")
+lenght=len(train_name)
+an="yes"
+for i in range(lenght):
+    print("Seats Available : ",number_of_seats[i])
+    print("\n")
+for j in range(0,lenght):
+    for i in range(0,lenght):    
+        def booking():
+            dest=input("Enter the Destination Station Name")
+            arri=input("Enter the Arrival Station Name")
+            if (destination[i]==dest and arrival[i]==arri):
+                print("\n\t\t",train_name[i])
+                print("\nNo. of Seats Available :",number_of_seats[i],"Ticket Price",ticket_price[i])
+                print("\n Want to Book seat(s)?\n")
+                ask=input("Yes/ No")
+                if ask.upper()=="YES":
+                    how_many_seats=int(input("\nEnter the Number of seats you want to Book"))
+                    if (how_many_seats>number_of_seats[i]):
+                        print("\nPlease Enter some less number of seats")
+                    else:
+                        print("\nThe Total Amount to be Payed is:",how_many_seats*ticket_price[i])
+                        pay=input("Do you want to Pay?")
+                        if pay.lower()=="yes":
+                            print("\nThanks for selecting the service!!\n")
+                            number_of_seats[i]-=how_many_seats
+                            print("\t\tYour Receipt")
+                            print("\n\t\t",train_name[i])
+                            print("\nNo of Seats Booked : ", how_many_seats)
+                            print("\nTotal Price is : ",how_many_seats*ticket_price[i])
+                else:
+                    print("Thanks For Using our Service")
+
+            else:
+                print("No train(s) Available")
+                
+        while (an=="yes"):
+            booking()
+            ans=input("Wanna Continue (yes or no)")
+            for i in range(lenght):
+                print("Seats Available : ",number_of_seats[i])
+                print("\n")
+
+        
+
+    
+ 
+            
+   
